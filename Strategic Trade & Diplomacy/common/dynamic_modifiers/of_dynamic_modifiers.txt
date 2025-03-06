@@ -1,0 +1,11 @@
+sended_factories = {
+	enable = { always = yes }
+
+	civilian_factory_use = sended_factories
+}
+
+received_factories = {
+	enable = { always = yes }
+
+	industrial_factory_donations = received_factories
+}

@@ -1,0 +1,107 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_chose_offer"
+		textureFile = "gfx/interface/chose_offer.dds"
+    }
+	spriteType = {
+		name = "GFX_icon_territories"
+		textureFile = "gfx/interface/icon_territories.dds" # ТЕРРА
+	}
+	spriteType = {
+		name = "GFX_icon_territories_root"
+		textureFile = "gfx/interface/icon_territories_root.dds" # ТЕРРА СВОЯ
+	}
+	spriteType = {
+		name = "GFX_diplo_countrylist_flag_frame"
+		textureFile = "gfx/interface/diplo_countrylist_flag_frame.dds" # ФЛАГ
+	}
+	spriteType = {
+		name = "GFX_diplo_countrylist_flag_frame2"
+		textureFile = "gfx/interface/diplo_countrylist_flag_frame2.dds" # ФЛАГ РУТ
+	}
+	spriteType = {
+		name = "GFX_diplo_details_header"
+		textureFile = "gfx/interface/diplo_details_header.dds" # КАТЕГОРИЯ
+	}
+	spriteType = {
+		name = "GFX_diplo_details_header_root"
+		textureFile = "gfx/interface/diplo_details_header_root.dds" # КАТЕГОРИЯ РУТ
+	}
+	spriteType = {
+		name = "GFX_inf_softness_icon_root"
+		textureFile = "gfx/interface/inf_softness_icon_root.dds" # ПЕХОТКА РУТ
+	}
+	spriteType = {
+		name = "GFX_inf_softness_icon"
+		textureFile = "gfx/interface/inf_softness_icon.dds" # ПЕХОТКА
+	}
+	spriteType = {
+		name = "GFX_manpower_icon_root"
+		textureFile = "gfx/interface/manpower_icon_root.dds" # ЛЮДСКИЕ РЕСЫ РУТ
+	}
+	spriteType = {
+		name = "GFX_manpower_icon"
+		textureFile = "gfx/interface/manpower_icon.dds" # ЛЮДСКИЕ РЕСЫ
+	}
+	spriteType = {
+		name = "GFX_mini_offer"
+		textureFile = "gfx/interface/mini_offer.dds" # БГ ДЛЯ ОФФЕРА
+	}
+	spriteType = {
+		name = "GFX_mini_offer_root"
+		textureFile = "gfx/interface/mini_offer_root.dds" # БГ ДЛЯ ОФФЕРА РУТ
+	} 
+	spriteType = {
+		name = "GFX_political_power"
+		textureFile = "gfx/interface/political_power.dds" # ПОЛИТКА
+	} 
+	spriteType = {
+		name = "GFX_political_power_root"
+		textureFile = "gfx/interface/political_power_root.dds" # ПОЛИТКА РУТ
+	} 
+	spriteType = {
+		name = "GFX_mini_offer_test"
+		textureFile = "gfx/interface/mini_offer_test.dds" # ТЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕСТ
+	} 
+	spriteType = {
+		name = "GFX_diplo_countrylist_flag_small"
+		textureFile = "gfx/interface/diplo_countrylist_flag_small.dds" # ТЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕСТ
+	} 
+	spriteType = {
+		name = "GFX_sort_button_frame_1"
+		textureFile = "gfx/interface/sort_button_frame_1.dds"
+	} 
+	spriteType = {
+		name = "GFX_sort_button_frame_2"
+		textureFile = "gfx/interface/sort_button_frame_2.dds"
+	} 
+	spriteType = {
+		name = "GFX_send_icon"
+		textureFile = "gfx/interface/send_icon.dds"
+	} 
+	spriteType = {
+		name = "GFX_arrow_left"
+		textureFile = "gfx/interface/arrow_left.dds"
+	} 
+	spriteType = {
+		name = "GFX_arrow_right"
+		textureFile = "gfx/interface/arrow_right.dds"
+	} 
+	spriteType = {
+		name = "GFX_sort_button_frame_long_1"
+		textureFile = "gfx/interface/sort_button_frame_long_1.dds"
+	} 
+	spriteType = {
+		name = "GFX_factory_icon"
+		textureFile = "gfx/interface/factory_icon.dds"
+	} 
+	spriteType = {
+		name = "GFX_subtract_50"
+		textureFile = "gfx/interface/subtract_50.dds"
+	} 
+	spriteType = {
+		name = "GFX_add_50"
+		textureFile = "gfx/interface/add_50.dds"
+	} 	
+}
+

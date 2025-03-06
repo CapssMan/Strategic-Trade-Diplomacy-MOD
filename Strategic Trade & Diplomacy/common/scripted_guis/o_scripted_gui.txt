@@ -1,0 +1,1336 @@
+scripted_gui = {
+	offer_window = {
+		window_name = "offer_window"
+		context_type = diplomatic_action
+		
+		dynamic_lists = {
+			country_states = {
+				array = root.owned_st 
+				change_scope = yes
+				entry_container = o_states
+			}
+			
+			country_states_root = {
+				array = root.owned_st_root 
+				change_scope = yes
+				entry_container = o_states_root
+			}
+			
+			list_equipment = {
+				array = root.list_equipment
+				change_scope = yes
+				entry_container = o_equipment
+			}
+			
+			list_equipment_root = {
+				array = root.list_equipment_root
+				change_scope = yes
+				entry_container = o_equipment_root
+			}
+		}
+		
+		effects = {
+			button_political_power_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_political_power } } } 
+					ROOT = {
+						set_country_flag = of_political_power
+						set_variable = { o_give_pp = 0 }
+						
+						clr_country_flag = of_hr_flag
+						clr_country_flag = of_sw_flag
+						clr_country_flag = of_st_flag
+						clr_country_flag = of_factory_flag
+						
+						clear_array = list_equipment
+						clear_array = owned_st
+						
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_political_power
+					}
+				}
+			}
+		
+			button_political_power_root_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_political_power_root } } } 
+					ROOT = {
+						set_country_flag = of_political_power_root
+						set_variable = { o_give_pp_root = 0 }
+						
+						clr_country_flag = of_hr_root_flag
+						clr_country_flag = of_sw_root_flag
+						clr_country_flag = of_st_root_flag
+						clr_country_flag = of_factory_flag_root
+						
+						clear_array = list_equipment_root
+						clear_array = owned_st_root
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_political_power_root
+					}
+				}
+			}
+			add_one_pp_click = {
+				ROOT = {
+					add_to_variable = { o_give_pp = 1 }
+					if = { limit = { check_variable = { o_give_pp > root.political_power } }
+						set_variable = { o_give_pp = root.political_power }
+					}		
+				}
+			}
+			add_five_pp_click = {
+				ROOT = {
+					add_to_variable = { o_give_pp = 5 }
+					if = { limit = { check_variable = { o_give_pp > root.political_power } }
+						set_variable = { o_give_pp = root.political_power }
+					}
+				}
+			}
+			add_ten_pp_click = {
+				ROOT = {
+					add_to_variable = { o_give_pp = 10 }
+					if = { limit = { check_variable = { o_give_pp > root.political_power } }
+						set_variable = { o_give_pp = root.political_power }
+					}
+				}
+			}
+			subtract_one_pp_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_pp = 1 }
+					if = { limit = { check_variable = { o_give_pp < 0 } }
+						set_variable = { o_give_pp = 0 }
+					}
+				}
+			}
+			subtract_five_pp_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_pp = 5 }
+					if = { limit = { check_variable = { o_give_pp < 0 } }
+						set_variable = { o_give_pp = 0 }
+					}
+				}
+			}
+			subtract_ten_pp_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_pp = 10 }
+					if = { limit = { check_variable = { o_give_pp < 0 } }
+						set_variable = { o_give_pp = 0 }
+					}
+				}
+			}
+			
+			add_one_pp_root_click = {
+				ROOT = {
+					add_to_variable = { o_give_pp_root = 1 }
+					if = { limit = { check_variable = { o_give_pp_root > prev.political_power } }
+						set_variable = { o_give_pp_root = prev.political_power }
+					}	
+				}
+			}
+			add_five_pp_root_click = {
+				ROOT = {
+					add_to_variable = { o_give_pp_root = 5 }
+					if = { limit = { check_variable = { o_give_pp_root > prev.political_power } }
+						set_variable = { o_give_pp_root = prev.political_power }
+					}
+				}
+			}
+			add_ten_pp_root_click= {
+				ROOT = {
+					add_to_variable = { o_give_pp_root = 10 }
+					if = { limit = { check_variable = { o_give_pp_root > prev.political_power } }
+						set_variable = { o_give_pp_root = prev.political_power }
+					}
+				}
+			}
+			subtract_one_pp_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_pp_root = 1 }
+					if = { limit = { check_variable = { o_give_pp_root < 0 } }
+						set_variable = { o_give_pp_root = 0 }
+					}
+				}
+			}
+			subtract_five_pp_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_pp_root = 5 }
+					if = { limit = { check_variable = { o_give_pp_root < 0 } }
+						set_variable = { o_give_pp_root = 0 }
+					}
+				}
+			}
+			subtract_ten_pp_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_pp_root = 10 }
+					if = { limit = { check_variable = { o_give_pp_root < 0 } }
+						set_variable = { o_give_pp_root = 0 }
+					}
+				}
+			}
+			
+			button_manpower_icon_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_hr_flag } } } 
+					ROOT = {
+						set_country_flag = of_hr_flag
+						#set_variable = { o_give_hr = 0 }
+						#set_variable = { o_give_hr_percent = 0 }
+						
+						clr_country_flag = of_political_power
+						clr_country_flag = of_sw_flag
+						clr_country_flag = of_st_flag
+						clr_country_flag = of_factory_flag
+						
+						clear_array = list_equipment
+						clear_array = owned_st
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_hr_flag
+					}
+				}
+			}
+		
+			button_manpower_icon_root_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_hr_root_flag } } } 
+					ROOT = {
+						set_country_flag = of_hr_root_flag
+						#set_variable = { o_give_hr_root = 0 }
+						#set_variable = { o_give_hr_percent_root = 0 }
+						
+						clr_country_flag = of_political_power_root
+						clr_country_flag = of_sw_root_flag
+						clr_country_flag = of_st_root_flag
+						clr_country_flag = of_factory_flag_root
+					
+						clear_array = list_equipment_root
+						clear_array = owned_st_root
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_hr_root_flag
+					}
+				}
+			}
+			
+			add_one_hr_click = {
+				ROOT = {
+					add_to_variable = { o_give_hr = 1 }
+					if = { limit = { check_variable = { o_give_hr > root.manpower_k } }
+						subtract_from_variable = { o_give_hr = 1 }
+					}
+					else = {
+						add_to_array = { o_give_hr = 1000 }
+					}
+				}
+			}
+			add_five_hr_click = {
+				ROOT = {
+					add_to_variable = { o_give_hr = 10 }
+					if = { limit = { check_variable = { o_give_hr > root.manpower_k } }
+						subtract_from_variable = { o_give_hr = 10 }
+					}
+					else = {
+						add_to_array = { o_give_hr = 10000 }
+					}
+				}
+			}
+			add_ten_hr_click = {
+				ROOT = {
+					add_to_variable = { o_give_hr = 50 }
+					if = { limit = { check_variable = { o_give_hr > root.manpower_k } }
+						subtract_from_variable = { o_give_hr = 50 }
+					}
+					else = {
+						add_to_array = { o_give_hr = 50000 }
+					}
+				}
+			}
+			subtract_one_hr_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_hr = 1 }
+					if = { limit = { check_variable = { o_give_hr < 0 } }
+						add_to_variable = { o_give_hr = 1 }
+					}
+					else_if = { limit = { NOT = { is_in_array = { o_give_hr = 1000 } } } 
+						add_to_variable = { o_give_hr = 1 }
+					}
+					else = {
+						remove_from_array = { o_give_hr = 1000 }
+					}
+				}
+			}
+			subtract_five_hr_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_hr = 10 }
+					if = { limit = { check_variable = { o_give_hr < 0 } }
+						add_to_variable = { o_give_hr = 10 }
+					}
+					else_if = { limit = { NOT = { is_in_array = { o_give_hr = 10000 } } } 
+						add_to_variable = { o_give_hr = 10 }
+					}
+					else = {
+						remove_from_array = { o_give_hr = 10000 }
+					}
+				}
+			}
+			subtract_ten_hr_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_hr = 50 }
+					if = { limit = { check_variable = { o_give_hr < 0 } }
+						add_to_variable = { o_give_hr = 50 }
+					}
+					else_if = { limit = { NOT = { is_in_array = { o_give_hr = 50000 } } } 
+						add_to_variable = { o_give_hr = 50 }
+					}
+					else = {
+						remove_from_array = { o_give_hr = 50000 }
+					}
+				}
+			}
+			
+			add_one_hr_root_click = {
+				ROOT = {
+					add_to_variable = { o_give_hr_root = 1 }
+					if = { limit = { check_variable = { o_give_hr_root > from.manpower_k } }
+						subtract_from_variable = { o_give_hr_root = 1 }
+					}
+					else = {
+						add_to_array = { o_give_hr_root = 1000 }
+					}
+				}
+			}
+			add_five_hr_root_click = {
+				ROOT = {
+					add_to_variable = { o_give_hr_root = 10 }
+					if = { limit = { check_variable = { o_give_hr_root > from.manpower_k } }
+						subtract_from_variable = { o_give_hr_root = 10 }
+					}
+					else = {
+						add_to_array = { o_give_hr_root = 10000 }
+					}
+				}
+			}
+			add_ten_hr_root_click= {
+				ROOT = {
+					add_to_variable = { o_give_hr_root = 50 }
+					if = { limit = { check_variable = { o_give_hr_root > from.manpower_k } }
+						subtract_from_variable = { o_give_hr_root = 50 }
+					}
+					else = {
+						add_to_array = { o_give_hr_root = 50000 }
+					}
+				}
+			}
+			subtract_one_hr_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_hr_root = 1 }
+					if = { limit = { check_variable = { o_give_hr_root < 0 } }
+						add_to_variable = { o_give_hr_root = 1 }
+					}
+					else_if = { limit = { NOT = { is_in_array = { o_give_hr_root = 1000 } } } 
+						add_to_variable = { o_give_hr_root = 1 }
+					}
+					else = {
+						remove_from_array = { o_give_hr_root = 1000 }
+					}
+				}
+			}
+			subtract_five_hr_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_hr_root = 10 }
+					if = { limit = { check_variable = { o_give_hr_root < 0 } }
+						add_to_variable = { o_give_hr_root = 10 }
+					}
+					else_if = { limit = { NOT = { is_in_array = { o_give_hr_root = 10000 } } } 
+						add_to_variable = { o_give_hr_root = 10 }
+					}
+					else = {
+						remove_from_array = { o_give_hr_root = 10000 }
+					}
+				}
+			}
+			subtract_ten_hr_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_give_hr_root = 50 }
+					if = { limit = { check_variable = { o_give_hr_root < 0 } }
+						add_to_variable = { o_give_hr_root = 50 }
+					}
+					else_if = { limit = { NOT = { is_in_array = { o_give_hr_root = 50000 } } } 
+						add_to_variable = { o_give_hr_root = 50 }
+					}
+					else = {
+						remove_from_array = { o_give_hr_root = 50000 }
+					}
+				}
+			}
+			
+			button_territory_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_st_flag } } } 
+					ROOT = {
+						set_country_flag = of_st_flag
+						every_owned_state = {
+							add_to_array = { prev.owned_st = this}
+						}
+						
+						clr_country_flag = of_political_power
+						clr_country_flag = of_hr_flag
+						clr_country_flag = of_sw_flag
+						
+						clear_array = list_equipment
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_st_flag
+						clear_array = owned_st
+					}
+				}
+			}
+			
+			button_icon_territories_root_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_st_root_flag } } }
+					FROM = {
+						every_owned_state = {
+							add_to_array = { root.owned_st_root = this}
+						}
+					}
+					ROOT = {
+						set_country_flag = of_st_root_flag
+						
+						clr_country_flag = of_political_power_root
+						clr_country_flag = of_hr_root_flag
+						clr_country_flag = of_sw_root_flag
+						
+						clear_array = list_equipment_root
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_st_root_flag
+						clear_array = owned_st_root
+					}
+				}
+			}
+			
+			add_st_click = {
+				THIS = {
+					set_state_flag = o_st_marked_@ROOT
+				}
+			}
+			remove_st_click = {
+				THIS = {
+					clr_state_flag = o_st_marked_@ROOT
+				}
+			}
+			
+			add_st_root_click = {
+				THIS = {
+					set_state_flag = o_st_marked_root_@ROOT
+				}
+			}
+			remove_st_root_click = {
+				THIS = {
+					clr_state_flag = o_st_marked_root_@ROOT
+				}
+			}
+			
+			button_inf_softness_icon_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_sw_flag } } } 
+					ROOT = {
+						set_country_flag = of_sw_flag
+						
+						## LAND
+						add_to_array = { list_equipment = token:infantry_equipment }
+						add_to_array = { list_equipment = token:artillery_equipment }
+						add_to_array = { list_equipment = token:rocket_artillery_equipment }
+						add_to_array = { list_equipment = token:motorized_rocket_equipment }
+						add_to_array = { list_equipment = token:anti_air_equipment }
+						add_to_array = { list_equipment = token:anti_tank_equipment }
+						add_to_array = { list_equipment = token:support_equipment }
+						add_to_array = { list_equipment = token:train_equipment }
+						add_to_array = { list_equipment = token:motorized_equipment }
+						add_to_array = { list_equipment = token:mechanized_equipment }
+						add_to_array = { list_equipment = token:amphibious_mechanized_equipment }
+						add_to_array = { list_equipment = token:light_tank_chassis }
+						add_to_array = { list_equipment = token:medium_tank_chassis }
+						add_to_array = { list_equipment = token:heavy_tank_chassis }
+						add_to_array = { list_equipment = token:modern_tank_chassis }
+						add_to_array = { list_equipment = token:super_heavy_tank_chassis }
+						add_to_array = { list_equipment = token:amphibious_tank_chassis }
+						
+						## AIR
+						
+						add_to_array = { list_equipment = token:small_plane_airframe }
+						add_to_array = { list_equipment = token:cv_small_plane_airframe }
+						add_to_array = { list_equipment = token:medium_plane_airframe }
+						add_to_array = { list_equipment = token:large_plane_airframe }
+						add_to_array = { list_equipment = token:transport_plane_equipment }
+						
+						## SHIPS
+						
+						
+						add_to_array = { list_equipment = token:convoy }
+						add_to_array = { list_equipment = token:floating_harbor_equipment }
+						
+						add_to_array = { list_equipment = token:destroyer }
+						add_to_array = { list_equipment = token:light_cruiser }
+						add_to_array = { list_equipment = token:battle_cruiser }
+						add_to_array = { list_equipment = token:heavy_cruiser }
+						add_to_array = { list_equipment = token:battleship }
+						add_to_array = { list_equipment = token:carrier }
+						add_to_array = { list_equipment = token:submarine }
+						
+						set_variable = { equipment_choose = -1 }
+						
+						clr_country_flag = of_political_power
+						clr_country_flag = of_hr_flag
+						clr_country_flag = of_st_flag
+						clr_country_flag = of_factory_flag
+						
+						clear_array = owned_st
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_sw_flag
+						clear_array = list_equipment
+						clear_variable = equipment_choose
+					}
+				}
+			}
+			button_inf_softness_icon_root_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_sw_root_flag } } } 
+					ROOT = {
+						set_country_flag = of_sw_root_flag
+						
+						## LAND
+						add_to_array = { list_equipment_root = token:infantry_equipment }
+						add_to_array = { list_equipment_root = token:artillery_equipment }
+						add_to_array = { list_equipment_root = token:rocket_artillery_equipment }
+						add_to_array = { list_equipment_root = token:motorized_rocket_equipment }
+						add_to_array = { list_equipment_root = token:anti_air_equipment }
+						add_to_array = { list_equipment_root = token:anti_tank_equipment }
+						add_to_array = { list_equipment_root = token:support_equipment }
+						add_to_array = { list_equipment_root = token:train_equipment }
+						add_to_array = { list_equipment_root = token:motorized_equipment }
+						add_to_array = { list_equipment_root = token:mechanized_equipment }
+						add_to_array = { list_equipment_root = token:amphibious_mechanized_equipment }
+						add_to_array = { list_equipment_root = token:light_tank_chassis }
+						add_to_array = { list_equipment_root = token:medium_tank_chassis }
+						add_to_array = { list_equipment_root = token:heavy_tank_chassis }
+						add_to_array = { list_equipment_root = token:modern_tank_chassis }
+						add_to_array = { list_equipment_root = token:super_heavy_tank_chassis }
+						add_to_array = { list_equipment_root = token:amphibious_tank_chassis }
+						
+						## AIR
+						
+						add_to_array = { list_equipment_root = token:small_plane_airframe }
+						add_to_array = { list_equipment_root = token:cv_small_plane_airframe }
+						add_to_array = { list_equipment_root = token:medium_plane_airframe }
+						add_to_array = { list_equipment_root = token:large_plane_airframe }
+						add_to_array = { list_equipment_root = token:transport_plane_equipment }
+						
+						## SHIPS
+						
+						
+						add_to_array = { list_equipment_root = token:convoy }
+						add_to_array = { list_equipment_root = token:floating_harbor_equipment }
+						
+						add_to_array = { list_equipment_root = token:destroyer }
+						add_to_array = { list_equipment_root = token:light_cruiser }
+						add_to_array = { list_equipment_root = token:battle_cruiser }
+						add_to_array = { list_equipment_root = token:heavy_cruiser }
+						add_to_array = { list_equipment_root = token:battleship }
+						add_to_array = { list_equipment_root = token:carrier }
+						add_to_array = { list_equipment_root = token:submarine }
+						
+						set_variable = { equipment_choose_root = -1 }
+						
+						clr_country_flag = of_political_power_root
+						clr_country_flag = of_hr_root_flag
+						clr_country_flag = of_st_root_flag
+						clr_country_flag = of_factory_flag_root
+						
+						clear_array = owned_st_root
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_sw_root_flag
+						clear_array = list_equipment_root
+						clear_variable = equipment_choose_root
+					}
+				}
+			}
+			add_equipment_click = {
+				ROOT = {
+					set_variable = { equipment_choose = i }
+					if = { limit = { NOT = { has_variable = equipment_@var:i } }
+						set_variable = { equipment_@var:i = 0 }
+					}
+					set_variable = { o_send_eq = equipment_@var:equipment_choose }
+				}
+			}
+			remove_equipment_click = {
+				ROOT = {
+					set_variable = { root.equipment_choose = -1 }
+					set_variable = { o_send_eq = 0 }
+				}
+			}
+			
+			add_max_eq_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							set_variable = { equipment_[INDEX] = [EQ_OR_SHIP]@[EQ_TYPE] }
+							set_variable = { o_send_eq = equipment_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment^equipment_choose.GetTokenKey]"
+						INDEX = "[?equipment_choose]"
+						EQ_OR_SHIP = "[root.eq_or_ship]"
+					}
+				}
+			}
+			
+			add_one_eq_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							add_to_variable = { equipment_[INDEX] = 1 }
+							if = { limit = { check_variable = { equipment_[INDEX] > [EQ_OR_SHIP]@[EQ_TYPE] } }
+								set_variable = { equipment_[INDEX] = [EQ_OR_SHIP]@[EQ_TYPE] }
+							}
+							set_variable = { o_send_eq = equipment_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment^equipment_choose.GetTokenKey]"
+						INDEX = "[?equipment_choose]"
+						EQ_OR_SHIP = "[root.eq_or_ship]"
+					}
+				}
+			}
+			
+			add_five_eq_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							add_to_variable = { equipment_[INDEX] = 5 }
+							if = { limit = { check_variable = { equipment_[INDEX] > [EQ_OR_SHIP]@[EQ_TYPE] } }
+								set_variable = { equipment_[INDEX] = [EQ_OR_SHIP]@[EQ_TYPE] }
+							}
+							set_variable = { o_send_eq = equipment_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment^equipment_choose.GetTokenKey]"
+						INDEX = "[?equipment_choose]"
+						EQ_OR_SHIP = "[root.eq_or_ship]"
+					}
+				}
+			}
+			
+			add_ten_eq_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							add_to_variable = { equipment_[INDEX] = 10 }
+							if = { limit = { check_variable = { equipment_[INDEX] > [EQ_OR_SHIP]@[EQ_TYPE] } }
+								set_variable = { equipment_[INDEX] = [EQ_OR_SHIP]@[EQ_TYPE] }
+							}
+							set_variable = { o_send_eq = equipment_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment^equipment_choose.GetTokenKey]"
+						INDEX = "[?equipment_choose]"
+						EQ_OR_SHIP = "[root.eq_or_ship]"
+					}
+				}
+			}
+			
+			subtract_one_eq_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							subtract_from_variable = { equipment_[INDEX] = 1 }
+							if = { limit = { check_variable = { equipment_[INDEX] < 0 } }
+								set_variable = { equipment_[INDEX] = 0 }
+							}
+							set_variable = { o_send_eq = equipment_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment^equipment_choose.GetTokenKey]"
+						INDEX = "[?equipment_choose]"
+					}
+				}
+			}
+			
+			subtract_five_eq_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							subtract_from_variable = { equipment_[INDEX] = 5 }
+							if = { limit = { check_variable = { equipment_[INDEX] < 0 } }
+								set_variable = { equipment_[INDEX] = 0 }
+							}
+							set_variable = { o_send_eq = equipment_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment^equipment_choose.GetTokenKey]"
+						INDEX = "[?equipment_choose]"
+					}
+				}
+			}
+			
+			subtract_ten_eq_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							subtract_from_variable = { equipment_[INDEX] = 10 }
+							if = { limit = { check_variable = { equipment_[INDEX] < 0 } }
+								set_variable = { equipment_[INDEX] = 0 }
+							}
+							set_variable = { o_send_eq = equipment_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment^equipment_choose.GetTokenKey]"
+						INDEX = "[?equipment_choose]"
+					}
+				}
+			}
+			
+			set_null_eq_click = {
+				ROOT = {
+					clear_variable = equipment_@var:equipment_choose
+					set_variable = { o_send_eq = equipment_@var:equipment_choose }
+				}
+			}
+			
+			add_equipment_root_click = {
+				ROOT = {
+					set_variable = { equipment_choose_root = i }
+					if = { limit = { NOT = { has_variable = equipment_root_@var:i } }
+						set_variable = { equipment_root_@var:i = 0 }
+					}
+					set_variable = { o_send_eq_root = equipment_root_@var:equipment_choose_root }
+				}
+			}
+			remove_equipment_root_click = {
+				ROOT = {
+					set_variable = { root.equipment_choose_root = -1 }
+					set_variable = { o_send_eq_root = 0 }
+				}
+			}
+			
+			add_max_eq_root_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							set_variable = { equipment_root_[INDEX] = PREV.[EQ_OR_SHIP]@[EQ_TYPE] }
+							set_variable = { o_send_eq_root = equipment_root_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment_root^equipment_choose_root.GetTokenKey]"
+						INDEX = "[?equipment_choose_root]"
+						EQ_OR_SHIP = "[root.eq_or_ship_root]"
+					}
+				}
+			}
+			
+			add_one_eq_root_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							add_to_variable = { equipment_root_[INDEX] = 1 }
+							if = { limit = { check_variable = { equipment_root_[INDEX] > PREV.[EQ_OR_SHIP]@[EQ_TYPE] } }
+								set_variable = { equipment_root_[INDEX] = PREV.[EQ_OR_SHIP]@[EQ_TYPE] }
+							}
+							set_variable = { o_send_eq_root = equipment_root_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment_root^equipment_choose_root.GetTokenKey]"
+						INDEX = "[?equipment_choose_root]"
+						EQ_OR_SHIP = "[root.eq_or_ship_root]"
+					}
+				}
+			}
+			
+			add_five_eq_root_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							add_to_variable = { equipment_root_[INDEX] = 5 }
+							if = { limit = { check_variable = { equipment_root_[INDEX] > PREV.[EQ_OR_SHIP]@[EQ_TYPE] } }
+								set_variable = { equipment_root_[INDEX] = PREV.[EQ_OR_SHIP]@[EQ_TYPE] }
+							}
+							set_variable = { o_send_eq_root = equipment_root_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment_root^equipment_choose_root.GetTokenKey]"
+						INDEX = "[?equipment_choose_root]"
+						EQ_OR_SHIP = "[root.eq_or_ship_root]"
+					}
+				}
+			}
+			
+			add_ten_eq_root_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							add_to_variable = { equipment_root_[INDEX] = 10 }
+							if = { limit = { check_variable = { equipment_root_[INDEX] > PREV.[EQ_OR_SHIP]@[EQ_TYPE] } }
+								set_variable = { equipment_root_[INDEX] = PREV.[EQ_OR_SHIP]@[EQ_TYPE] }
+							}
+							set_variable = { o_send_eq_root = equipment_root_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment_root^equipment_choose_root.GetTokenKey]"
+						INDEX = "[?equipment_choose_root]"
+						EQ_OR_SHIP = "[root.eq_or_ship_root]"
+					}
+				}
+			}
+			
+			subtract_one_eq_root_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							subtract_from_variable = { equipment_root_[INDEX] = 1 }
+							if = { limit = { check_variable = { equipment_root_[INDEX] < 0 } }
+								set_variable = { equipment_root_[INDEX] = 0 }
+							}
+							set_variable = { o_send_eq_root = equipment_root_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment_root^equipment_choose_root.GetTokenKey]"
+						INDEX = "[?equipment_choose_root]"
+					}
+				}
+			}
+			
+			subtract_five_eq_root_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							subtract_from_variable = { equipment_root_[INDEX] = 5 }
+							if = { limit = { check_variable = { equipment_root_[INDEX] < 0 } }
+								set_variable = { equipment_root_[INDEX] = 0 }
+							}
+							set_variable = { o_send_eq_root = equipment_root_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment_root^equipment_choose_root.GetTokenKey]"
+						INDEX = "[?equipment_choose_root]"
+					}
+				}
+			}
+			
+			subtract_ten_eq_root_click = {
+				ROOT = {
+					meta_effect = {
+						text = {
+							subtract_from_variable = { equipment_root_[INDEX] = 10 }
+							if = { limit = { check_variable = { equipment_root_[INDEX] < 0 } }
+								set_variable = { equipment_root_[INDEX] = 0 }
+							}
+							set_variable = { o_send_eq_root = equipment_root_[INDEX] }
+						}
+						EQ_TYPE = "[?root.list_equipment_root^equipment_choose_root.GetTokenKey]"
+						INDEX = "[?equipment_choose_root]"
+					}
+				}
+			}
+			
+			set_null_eq_root_click = {
+				ROOT = {
+					clear_variable = equipment_root_@var:equipment_choose_root
+					set_variable = { o_send_eq_root = equipment_@var:equipment_choose_root}
+				}
+			}
+		
+			button_factory_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_factory_flag } } } 
+					ROOT = {
+						set_country_flag = of_factory_flag
+						
+						clr_country_flag = of_political_power
+						clr_country_flag = of_hr_flag
+						clr_country_flag = of_sw_flag
+						clr_country_flag = of_st_flag
+						
+						clear_array = list_equipment
+						clear_array = owned_st
+						
+						if = { limit = { NOT = { has_variable = o_send_factories } } 
+							set_variable = { o_send_factories = 0 }
+						}
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_factory_flag
+					}
+				}
+			}
+			
+			button_factory_root_click = {
+				if = { limit = { ROOT = { NOT = { has_country_flag = of_factory_flag_root } } } 
+					ROOT = {
+						set_country_flag = of_factory_flag_root
+						
+						clr_country_flag = of_political_power_root
+						clr_country_flag = of_hr_root_flag
+						clr_country_flag = of_sw_root_flag
+						clr_country_flag = of_st_root_flag
+						
+						clear_array = list_equipment_root
+						clear_array = owned_st_root
+						
+						if = { limit = { NOT = { has_variable = o_send_factories_root } } 
+							set_variable = { o_factories_to_send_root = 0 }
+						}
+					}
+				}
+				else = {
+					ROOT = {
+						clr_country_flag = of_factory_flag_root
+					}
+				}
+			}
+			
+			add_one_factory_click = {
+				ROOT = {
+					add_to_variable = { o_factories_to_send = 1 }
+					if = { limit = { check_variable = { o_factories_to_send > num_of_civilian_factories_available_for_projects } }
+						set_variable = { o_factories_to_send = num_of_civilian_factories_available_for_projects }
+					}
+				}
+			}
+			
+			add_five_factory_click = {
+				ROOT = {
+					add_to_variable = { o_factories_to_send = 5 }
+					if = { limit = { check_variable = { o_factories_to_send > num_of_civilian_factories_available_for_projects } }
+						set_variable = { o_factories_to_send = num_of_civilian_factories_available_for_projects }
+					}
+				}
+			}
+			
+			add_ten_factory_click = {
+				ROOT = {
+					add_to_variable = { o_factories_to_send = 10 }
+					if = { limit = { check_variable = { o_factories_to_send > num_of_civilian_factories_available_for_projects } }
+						set_variable = { o_factories_to_send = num_of_civilian_factories_available_for_projects }
+					}
+				}
+			}
+			
+			subtract_one_factory_click = {
+				ROOT = {
+					subtract_from_variable = { o_factories_to_send = 1 }
+					if = { limit = { check_variable = { o_factories_to_send < 0 } }
+						set_variable = { o_factories_to_send = 0 }
+					}
+				}
+			}
+			
+			subtract_five_factory_click = {
+				ROOT = {
+					subtract_from_variable = { o_factories_to_send = 5 }
+					if = { limit = { check_variable = { o_factories_to_send < 0 } }
+						set_variable = { o_factories_to_send = 0 }
+					}
+				}
+			}
+			
+			subtract_ten_factory_click = {
+				ROOT = {
+					subtract_from_variable = { o_factories_to_send = 10 }
+					if = { limit = { check_variable = { o_factories_to_send < 0 } }
+						set_variable = { o_factories_to_send = 0 }
+					}
+				}
+			}
+		
+			add_one_factory_root_click = {
+				add_to_variable = { root.o_factories_to_send_root = 1 }
+				if = { limit = { check_variable = { root.o_factories_to_send_root > num_of_civilian_factories_available_for_projects } }
+					set_variable = { root.o_factories_to_send_root = num_of_civilian_factories_available_for_projects }
+				}
+			}
+			
+			add_five_factory_root_click = {
+				add_to_variable = { root.o_factories_to_send_root = 5 }
+				if = { limit = { check_variable = { root.o_factories_to_send_root > num_of_civilian_factories_available_for_projects } }
+					set_variable = { root.o_factories_to_send_root = num_of_civilian_factories_available_for_projects }
+				}
+			}
+			
+			add_ten_factory_root_click = {
+				add_to_variable = { root.o_factories_to_send_root = 10 }
+				if = { limit = { check_variable = { root.o_factories_to_send_root > num_of_civilian_factories_available_for_projects } }
+					set_variable = { root.o_factories_to_send_root = num_of_civilian_factories_available_for_projects }
+				}
+			}
+			
+			subtract_one_factory_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_factories_to_send_root = 1 }
+					if = { limit = { check_variable = { o_factories_to_send_root < 0 } }
+						set_variable = { o_factories_to_send_root = 0 }
+					}
+				}
+			}
+			
+			subtract_five_factory_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_factories_to_send_root = 5 }
+					if = { limit = { check_variable = { o_factories_to_send_root < 0 } }
+						set_variable = { o_factories_to_send_root = 0 }
+					}
+				}
+			}
+			
+			subtract_ten_factory_root_click = {
+				ROOT = {
+					subtract_from_variable = { o_factories_to_send_root = 10 }
+					if = { limit = { check_variable = { o_factories_to_send_root < 0 } }
+						set_variable = { o_factories_to_send_root = 0 }
+					}
+				}
+			}
+		}
+		
+		triggers = {
+			o_factories_to_send_visible = {
+				ROOT = { has_country_flag = of_factory_flag }
+			}
+			
+			add_one_factory_visible = {
+				ROOT = { has_country_flag = of_factory_flag }
+			}
+			
+			add_five_factory_visible = {
+				ROOT = { has_country_flag = of_factory_flag }
+			}
+			
+			add_ten_factory_visible = {
+				ROOT = { has_country_flag = of_factory_flag }
+			}
+			
+			subtract_one_factory_visible = {
+				ROOT = { has_country_flag = of_factory_flag }
+			}
+			
+			subtract_five_factory_visible = {
+				ROOT = { has_country_flag = of_factory_flag }
+			}
+			
+			subtract_ten_factory_visible = {
+				ROOT = { has_country_flag = of_factory_flag }
+			}
+			
+			o_factories_to_send_root_visible = {
+				ROOT = { has_country_flag = of_factory_flag_root }
+			}
+			
+			add_one_factory_root_visible = {
+				ROOT = { has_country_flag = of_factory_flag_root }
+			}
+			
+			add_five_factory_root_visible = {
+				ROOT = { has_country_flag = of_factory_flag_root }
+			}
+			
+			add_ten_factory_root_visible = {
+				ROOT = { has_country_flag = of_factory_flag_root }
+			}
+			
+			subtract_one_factory_root_visible = {
+				ROOT = { has_country_flag = of_factory_flag_root }
+			}
+			
+			subtract_five_factory_root_visible = {
+				ROOT = { has_country_flag = of_factory_flag_root }
+			}
+			
+			subtract_ten_factory_root_visible = {
+				ROOT = { has_country_flag = of_factory_flag_root }
+			}
+			
+			#mini_offer_visible = {
+			#	ROOT = { has_country_flag = of_political_power }
+			#}
+			#mini_offer_root_visible = {
+			#	ROOT = { has_country_flag = of_political_power_root }
+			#}
+			o_pp_visible = {
+				ROOT = { has_country_flag = of_political_power }
+			}
+			add_one_pp_visible = {
+				ROOT = { has_country_flag = of_political_power }
+			}
+			add_five_pp_visible = {
+				ROOT = { has_country_flag = of_political_power }
+			}
+			add_ten_pp_visible = {
+				ROOT = { has_country_flag = of_political_power }
+			}			
+			subtract_one_pp_visible = {
+				ROOT = { has_country_flag = of_political_power }
+			}
+			subtract_five_pp_visible = {
+				ROOT = { has_country_flag = of_political_power }
+			}
+			subtract_ten_pp_visible = {
+				ROOT = { has_country_flag = of_political_power }
+			}
+			
+			o_pp_root_visible = {
+				ROOT = { has_country_flag = of_political_power_root }
+			}
+			add_one_pp_root_visible = {
+				ROOT = { has_country_flag = of_political_power_root }
+			}
+			add_five_pp_root_visible = {
+				ROOT = { has_country_flag = of_political_power_root }
+			}
+			add_ten_pp_root_visible = {
+				ROOT = { has_country_flag = of_political_power_root }
+			}
+			subtract_one_pp_root_visible = {
+				ROOT = { has_country_flag = of_political_power_root }
+			}
+			subtract_five_pp_root_visible = {
+				ROOT = { has_country_flag = of_political_power_root }
+			}
+			subtract_ten_pp_root_visible = {
+				ROOT = { has_country_flag = of_political_power_root }
+			}
+			
+			#mini_offer_hr_visible = {
+			#	ROOT = { has_country_flag = of_hr_flag }
+			#}
+			
+			#mini_offer_hr_root_visible = {
+			#	ROOT = { has_country_flag = of_hr_root_flag }
+			#}
+			
+			o_hr_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}
+			o_hr_percent_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}
+			add_one_hr_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}
+			add_five_hr_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}
+			add_ten_hr_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}			
+			subtract_one_hr_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}
+			subtract_five_hr_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}
+			subtract_ten_hr_visible = {
+				ROOT = { has_country_flag = of_hr_flag }
+			}
+			
+			add_2_hr_visible = {
+				ROOT = {
+					has_country_flag = of_hr_flag
+					check_variable = { manpower_k > 2000 }
+				}
+			}
+			
+			subtract_2_hr_visible = {
+				ROOT = {
+					has_country_flag = of_hr_flag
+					check_variable = { manpower_k > 2000 }
+				}
+			}
+			
+			o_hr_mln_visible = {
+				ROOT = {
+					has_country_flag = of_hr_flag
+					check_variable = { manpower_k > 2000 }
+				}
+			}
+			
+			o_hr_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			o_hr_percent_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			add_one_hr_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			add_five_hr_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			add_ten_hr_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			subtract_one_hr_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			subtract_five_hr_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			subtract_ten_hr_root_visible = {
+				ROOT = { has_country_flag = of_hr_root_flag }
+			}
+			
+			add_2_hr_root_visible = {
+				ROOT = {
+					has_country_flag = of_hr_root_flag
+					check_variable = { prev.manpower_k > 2000 }
+				}
+			}
+			
+			subtract_2_hr_root_visible = {
+				ROOT = {
+					has_country_flag = of_hr_root_flag
+					check_variable = { prev.manpower_k > 2000 }
+				}
+			}
+			
+			o_hr_mln_root_visible = {
+				ROOT = {
+					has_country_flag = of_hr_root_flag
+					check_variable = { prev.manpower_k > 2000 }
+				}
+			}
+			
+			#country_states_visible = {
+			#	ROOT = { has_country_flag = of_st_flag } 
+			#}
+			
+			add_st_visible = {
+				THIS = {
+					NOT = {
+						has_state_flag = o_st_marked_@ROOT
+					}
+				}
+			}
+			remove_st_visible = {
+				THIS = {
+					has_state_flag = o_st_marked_@ROOT
+				}
+			}
+			add_st_root_visible = {
+				THIS = {
+					NOT = {
+						has_state_flag = o_st_marked_root_@ROOT
+					}
+				}
+			}
+			remove_st_root_visible = {
+				THIS = {
+					has_state_flag = o_st_marked_root_@ROOT
+				}
+			}
+			
+			add_equipment_visible = {
+				ROOT = {
+					NOT = { check_variable = { equipment_choose = i } }
+				}
+			}
+			remove_equipment_visible = {
+				ROOT = {
+					check_variable = { equipment_choose = i }
+				}
+			}
+			
+			add_max_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			add_one_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			add_five_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			add_ten_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			subtract_one_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			subtract_five_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			subtract_ten_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			set_null_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			o_eq_visible = {
+				ROOT = { has_variable = equipment_choose check_variable = { equipment_choose > -1 } } 
+			}
+			
+			add_equipment_root_visible = {
+				ROOT = {
+					NOT = { check_variable = { equipment_choose_root = i } }
+				}
+			}
+			remove_equipment_root_visible = {
+				ROOT = {
+					check_variable = { equipment_choose_root = i }
+				}
+			}
+			
+			add_max_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			add_one_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			add_five_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			add_ten_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			subtract_one_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			subtract_five_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			subtract_ten_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			set_null_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+			
+			o_eq_root_visible = {
+				ROOT = { has_variable = equipment_choose_root check_variable = { equipment_choose_root > -1 } } 
+			}
+		}
+		
+		properties = {
+			flag = {
+                image = "[root.GetFlag]"
+            }
+			flag_root = {
+                image = "[from.GetFlag]"
+            }
+		}
+	}
+}

@@ -1,0 +1,268 @@
+add_namespace = send_ships
+add_namespace = send_ships_root
+
+country_event = {
+	id = send_ships.24
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = destroyer
+			target = var:target_tag
+		}
+		subtract_from_variable = { root.equipment_24 = 1 }
+		
+		if = { limit = { check_variable = { root.equipment_24 > 0 } }
+			country_event = send_ships.24
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships.25
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = light_cruiser
+			target = var:target_tag
+		}
+		subtract_from_variable = { root.equipment_25 = 1 }
+		
+		if = { limit = { check_variable = { root.equipment_25 > 0 } }
+			country_event = send_ships.25
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships.26
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = battle_cruiser
+			target = var:target_tag
+		}
+		subtract_from_variable = { root.equipment_26 = 1 }
+		
+		if = { limit = { check_variable = { root.equipment_26 > 0 } }
+			country_event = send_ships.26
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships.27
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = heavy_cruiser
+			target = var:target_tag
+		}
+		subtract_from_variable = { root.equipment_27 = 1 }
+		
+		if = { limit = { check_variable = { root.equipment_27 > 0 } }
+			country_event = send_ships.27
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships.28
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = battleship
+			target = var:target_tag
+		}
+		subtract_from_variable = { root.equipment_28 = 1 }
+		
+		if = { limit = { check_variable = { root.equipment_28 > 0 } }
+			country_event = send_ships.28
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships.29
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = carrier
+			target = var:target_tag
+		}
+		subtract_from_variable = { root.equipment_29 = 1 }
+		
+		if = { limit = { check_variable = { root.equipment_29 > 0 } }
+			country_event = send_ships.29
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships.30
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = submarine
+			target = var:target_tag
+		}
+		subtract_from_variable = { root.equipment_30 = 1 }
+		
+		if = { limit = { check_variable = { root.equipment_30 > 0 } }
+			country_event = send_ships.30
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships_root.24
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = destroyer
+			target = var:target_tag_root
+		}
+		subtract_from_variable = { equipment_root_s_24 = 1 }
+		
+		if = { limit = { check_variable = { equipment_root_s_24 > 0 } }
+			country_event = send_ships_root.24
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships_root.25
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = light_cruiser
+			target = var:target_tag_root
+		}
+		subtract_from_variable = { equipment_root_s_25 = 1 }
+		
+		if = { limit = { check_variable = { equipment_root_s_25 > 0 } }
+			country_event = send_ships_root.25
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships_root.26
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = battle_cruiser
+			target = var:target_tag_root
+		}
+		subtract_from_variable = { equipment_root_s_26 = 1 }
+		
+		if = { limit = { check_variable = { equipment_root_s_26 > 0 } }
+			country_event = send_ships_root.26
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships_root.27
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = heavy_cruiser
+			target = var:target_tag_root
+		}
+		subtract_from_variable = { equipment_root_s_27 = 1 }
+		
+		if = { limit = { check_variable = { equipment_root_s_27 > 0 } }
+			country_event = send_ships_root.27
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships_root.28
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = battleship
+			target = var:target_tag_root
+		}
+		subtract_from_variable = { equipment_root_s_28 = 1 }
+		
+		if = { limit = { check_variable = { equipment_root_s_28 > 0 } }
+			country_event = send_ships_root.28
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships_root.29
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = carrier
+			target = var:target_tag_root
+		}
+		subtract_from_variable = { equipment_root_s_29 = 1 }
+		
+		if = { limit = { check_variable = { equipment_root_s_29 > 0 } }
+			country_event = send_ships_root.29
+		}	
+	}
+}
+
+country_event = {
+	id = send_ships_root.30
+	fire_only_once = no
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		transfer_ship = {
+			type = submarine
+			target = var:target_tag_root
+		}
+		subtract_from_variable = { equipment_root_s_30 = 1 }
+		
+		if = { limit = { check_variable = { equipment_root_s_30 > 0 } }
+			country_event = send_ships_root.30
+		}	
+	}
+}

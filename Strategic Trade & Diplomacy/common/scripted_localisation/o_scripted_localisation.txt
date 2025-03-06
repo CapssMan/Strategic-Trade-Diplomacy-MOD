@@ -1,0 +1,31 @@
+defined_text = {
+	name = eq_or_ship
+	text = {
+		trigger = {
+			check_variable = { equipment_choose < 24 }
+		}
+		localization_key = "num_equipment"
+	}
+	text = {
+		trigger = {
+			check_variable = { equipment_choose > 23 }
+		}
+		localization_key = "num_ships_with_type"
+	}
+}
+
+defined_text = {
+	name = eq_or_ship_root
+	text = {
+		trigger = {
+			check_variable = { equipment_choose_root < 24 }
+		}
+		localization_key = "num_equipment"
+	}
+	text = {
+		trigger = {
+			check_variable = { equipment_choose_root > 23 }
+		}
+		localization_key = "num_ships_with_type"
+	}
+}

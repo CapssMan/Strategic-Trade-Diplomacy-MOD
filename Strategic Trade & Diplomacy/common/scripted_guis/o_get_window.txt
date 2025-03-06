@@ -1,0 +1,40 @@
+scripted_gui = {
+	get_window = {
+		window_name = "get_window"
+		context_type = diplomatic_action
+		
+		dynamic_lists = {
+			send_states = {
+				array = root.tt_states
+				change_scope = yes
+				entry_container = get_window_right_send_states_container
+			}
+			
+			send_states_root = {
+				array = root.tt_root_states
+				change_scope = yes
+				entry_container = get_window_right_send_states_container
+			}
+			
+			send_eq = {
+				array = root.send_eq_list
+				change_scope = yes
+				entry_container = get_window_right_send_eq_container
+			}
+			
+			send_eq_root = {
+				array = root.send_eq_list_root
+				change_scope = yes
+				entry_container = get_window_left_send_eq_container
+			}
+		}
+		
+		effects = {
+		
+		}
+		
+		triggers = {
+		
+		}
+	}
+}

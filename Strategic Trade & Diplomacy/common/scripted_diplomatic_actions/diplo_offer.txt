@@ -1,0 +1,446 @@
+scripted_diplomatic_actions = {
+ 
+    offer_diplomatic_action = {
+        icon = 17    # Иконка для дипломатического запроса, видимая при отправке дипломатического действия. Не видна, если запрос не требует принятия. Должна быть включена в файл \gfx\interface\alerts\global_diplorequest_icons.dds, номер представляет местоположение иконки слева направо.
+           
+        allowed = {    # Используется для окна отправки, если false, игрок/ИИ не смогут отправить дипломатический запрос, даже если can_be_sent == true.
+        }
+        visible = {    # Условия для отображения этого дипломатического действия в экране дипломатии.
+			#is_ai = no
+		}
+        selectable = {    # Условия для возможности выбора опции игроком/ИИ в экране дипломатии, это то, что игрок видит как "предварительные условия" для использования этого действия.
+        }
+        can_be_accepted = {    # Условия, которые могут не позволить игроку/ИИ принять это дипломатическое действие.
+        }
+        can_be_sent = {    # Условия, которые могут не позволить игроку/ИИ отправить это дипломатическое действие.
+        }
+        
+        cost = 0    # Стоимость выполнения этого дипломатического действия, по умолчанию это политическая мощь.
+
+        requires_acceptance = yes    # Требуется ли принятие этого дипломатического запроса, если установлено на NO, эффект отклонения недействителен.
+        show_acceptance_on_action_button = yes    # Должно ли отображаться всплывающее окно с информацией о принятии/отклонении при использовании этого дипломатического действия для стран-ИИ.
+        
+        send_scripted_gui = offer_window
+		receive_scripted_gui = get_window
+
+        #### ЛОКАЛИЗАЦИЯ ДЕЙСТВИЯ ###
+
+        send_description = TEST_DIPLO_ACTION_LOC    # Текст, который видит страна, выполняющая дипломатическое действие.
+        receive_description = TEST_DIPLO_ACTION_RECIEVER_LOC    # Текст, который видит целевая страна при получении дипломатического действия.
+        accept_title = TEST_DIPLO_ACTION_ACCEPTED_TITLE    # Заголовок уведомления, отображаемого при ПРИНЯТИИ дипломатического действия, недействителен, если requires_acceptance == NO.
+        accept_description = TEST_DIPLO_ACTION_ACCEPTED_DESC    # Описание уведомления, отображаемого при ПРИНЯТИИ дипломатического действия, недействителен, если requires_acceptance == NO.
+        reject_title = TEST_DIPLO_ACTION_REJECTED_TITLE    # Заголовок уведомления, отображаемого при ОТКЛОНЕНИИ дипломатического действия, недействителен, если requires_acceptance == NO.
+        reject_description = TEST_DIPLO_ACTION_REJECTED_DESC    # Описание уведомления, отображаемого при ОТКЛОНЕНИИ дипломатического действия, недействителен, если requires_acceptance == NO.
+
+        #### ЭФФЕКТЫ ###        
+
+        on_sent_effect = {
+			ROOT = {
+				every_owned_state = {
+					if = { limit = { has_state_flag = o_st_marked_@ROOT }
+						add_to_array = { root.tt_states = this }
+					}
+				}
+			}
+			
+			every_owned_state = {
+				if = { limit = { has_state_flag = o_st_marked_root_@ROOT }
+					add_to_array = { root.tt_root_states = this }
+				}
+			}
+			
+			ROOT = {
+				clear_array = list_equipment
+				
+				## LAND
+				add_to_array = { list_equipment = token:infantry_equipment }
+				add_to_array = { list_equipment = token:artillery_equipment }
+				add_to_array = { list_equipment = token:rocket_artillery_equipment }
+				add_to_array = { list_equipment = token:motorized_rocket_equipment }
+				add_to_array = { list_equipment = token:anti_air_equipment }
+				add_to_array = { list_equipment = token:anti_tank_equipment }
+				add_to_array = { list_equipment = token:support_equipment }
+				add_to_array = { list_equipment = token:train_equipment }
+				add_to_array = { list_equipment = token:motorized_equipment }
+				add_to_array = { list_equipment = token:mechanized_equipment }
+				add_to_array = { list_equipment = token:amphibious_mechanized_equipment }
+				add_to_array = { list_equipment = token:light_tank_chassis }
+				add_to_array = { list_equipment = token:medium_tank_chassis }
+				add_to_array = { list_equipment = token:heavy_tank_chassis }
+				add_to_array = { list_equipment = token:modern_tank_chassis }
+				add_to_array = { list_equipment = token:super_heavy_tank_chassis }
+				add_to_array = { list_equipment = token:amphibious_tank_chassis }
+				
+				## AIR
+				
+				add_to_array = { list_equipment = token:small_plane_airframe }
+				add_to_array = { list_equipment = token:cv_small_plane_airframe }
+				add_to_array = { list_equipment = token:medium_plane_airframe }
+				add_to_array = { list_equipment = token:large_plane_airframe }
+				add_to_array = { list_equipment = token:transport_plane_equipment }
+				
+				## SHIPS
+				
+				
+				add_to_array = { list_equipment = token:convoy }
+				add_to_array = { list_equipment = token:floating_harbor_equipment }
+				
+				add_to_array = { list_equipment = token:destroyer }
+				add_to_array = { list_equipment = token:light_cruiser }
+				add_to_array = { list_equipment = token:battle_cruiser }
+				add_to_array = { list_equipment = token:heavy_cruiser }
+				add_to_array = { list_equipment = token:battleship }
+				add_to_array = { list_equipment = token:carrier }
+				add_to_array = { list_equipment = token:submarine }
+			}
+			
+			for_each_loop = {
+				array = root.list_equipment
+				
+				if = { limit = { check_variable = { root.equipment_@var:i > 0 } } 
+					add_to_array = { root.send_eq_list = root.list_equipment^i }
+					add_to_array = { root.send_eq = root.equipment_@var:i }
+				}
+				
+				if = { limit = { check_variable = { root.equipment_root_@var:i > 0 } }
+					add_to_array = { root.send_eq_list_root = root.list_equipment^i }
+					add_to_array = { root.send_eq_root = root.equipment_root_@var:i }
+				}
+			}
+			
+			clear_array = root.list_equipment
+		}
+        
+		
+        # complete_effect - Эффект, который можно применить при ПРИНЯТИИ действия (всегда принимается, если requires_acceptance == NO)
+        complete_effect = {
+			ROOT = { 
+				clr_country_flag = of_political_power
+				clr_country_flag = of_hr_flag
+				clr_country_flag = of_sw_flag
+				clr_country_flag = of_st_flag
+				clr_country_flag = of_factory_flag
+				
+				clr_country_flag = of_political_power_root
+				clr_country_flag = of_hr_root_flag
+				clr_country_flag = of_sw_root_flag
+				clr_country_flag = of_st_root_flag
+				clr_country_flag = of_factory_flag_root
+			}
+		
+			for_each_loop = {
+				array = root.o_give_hr
+				add_manpower = v
+			}
+			ROOT = {
+				for_each_loop = {
+				array = root.o_give_hr_root
+				add_manpower = v
+				}
+			}
+			for_each_loop = {
+				array = root.o_give_hr_root
+				multiply_temp_variable = { v = -1 }
+				add_manpower = v
+			}
+			ROOT = {
+				for_each_loop = {
+				array = root.o_give_hr
+				multiply_temp_variable = { v = -1 }
+				add_manpower = v
+				}
+			}
+			
+			clear_array = root.o_give_hr
+			clear_array = root.o_give_hr_root
+			clear_variable = root.o_give_hr
+			clear_variable = root.o_give_hr_root
+			
+			ROOT = {
+				add_political_power = o_give_pp_root
+				set_variable = { o_give_pp_minus = o_give_pp }
+				multiply_variable = { o_give_pp_minus = -1 }
+				add_political_power = o_give_pp_minus
+			}
+			
+			add_political_power = root.o_give_pp
+			set_variable = { root.o_give_pp_root_minus = root.o_give_pp_root }
+			multiply_variable = { root.o_give_pp_root_minus = -1 }
+			add_political_power = root.o_give_pp_root_minus	
+			
+			ROOT = {
+				clear_variable = o_give_pp
+				clear_variable = o_give_pp_minus
+				clear_variable = o_give_pp_root
+				clear_variable = o_give_pp_root_minus
+			}
+			
+			ROOT = {	
+				every_owned_state = {
+					if = { limit = { has_state_flag = o_st_marked_@ROOT } 
+						transfer_state_to = PREV.PREV
+					}
+				}
+			}
+			
+			every_owned_state = {
+				if = { limit = { has_state_flag = o_st_marked_root_@ROOT } 
+					transfer_state_to = ROOT
+				}
+			}
+			
+			ROOT = {	
+				every_owned_state = {
+					clr_state_flag = o_st_marked_@ROOT
+				}
+			}	
+
+			every_owned_state = {
+				clr_state_flag = o_st_marked_root_@ROOT
+			}
+					
+			ROOT = {
+				clear_array = list_equipment
+				clear_array = list_equipment_root
+				
+				## LAND
+				add_to_array = { list_equipment = token:infantry_equipment }
+				add_to_array = { list_equipment = token:artillery_equipment }
+				add_to_array = { list_equipment = token:rocket_artillery_equipment }
+				add_to_array = { list_equipment = token:motorized_rocket_equipment }
+				add_to_array = { list_equipment = token:anti_air_equipment }
+				add_to_array = { list_equipment = token:anti_tank_equipment }
+				add_to_array = { list_equipment = token:support_equipment }
+				add_to_array = { list_equipment = token:train_equipment }
+				add_to_array = { list_equipment = token:motorized_equipment }
+				add_to_array = { list_equipment = token:mechanized_equipment }
+				add_to_array = { list_equipment = token:amphibious_mechanized_equipment }
+				add_to_array = { list_equipment = token:light_tank_chassis }
+				add_to_array = { list_equipment = token:medium_tank_chassis }
+				add_to_array = { list_equipment = token:heavy_tank_chassis }
+				add_to_array = { list_equipment = token:modern_tank_chassis }
+				add_to_array = { list_equipment = token:super_heavy_tank_chassis }
+				add_to_array = { list_equipment = token:amphibious_tank_chassis }
+				
+				## AIR
+				
+				add_to_array = { list_equipment = token:small_plane_airframe }
+				add_to_array = { list_equipment = token:cv_small_plane_airframe }
+				add_to_array = { list_equipment = token:medium_plane_airframe }
+				add_to_array = { list_equipment = token:large_plane_airframe }
+				add_to_array = { list_equipment = token:transport_plane_equipment }
+				
+				## SHIPS
+				
+				
+				add_to_array = { list_equipment = token:convoy }
+				add_to_array = { list_equipment = token:floating_harbor_equipment }
+				
+				add_to_array = { list_equipment = token:destroyer }
+				add_to_array = { list_equipment = token:light_cruiser }
+				add_to_array = { list_equipment = token:battle_cruiser }
+				add_to_array = { list_equipment = token:heavy_cruiser }
+				add_to_array = { list_equipment = token:battleship }
+				add_to_array = { list_equipment = token:carrier }
+				add_to_array = { list_equipment = token:submarine }
+			
+				set_variable = { target_tag = PREV }
+				for_each_loop = {
+					array = root.list_equipment
+					
+					set_variable = { root.equipment_choose = i }
+					if = { limit = { check_variable = { root.equipment_choose < 24 } }
+						meta_effect = {
+							text = {
+								send_equipment = {
+									equipment = [EQ_TYPE]
+									amount = equipment_[INDEX]
+									target = PREV
+								}
+							}
+							EQ_TYPE = "[?root.list_equipment^root.equipment_choose.GetTokenKey]"
+							INDEX = root.equipment_choose
+						}
+					}
+					else_if = { limit = { check_variable = { root.equipment_@var:root.equipment_choose > 0 } }
+						meta_effect = {
+							text = {
+								country_event = send_ships.[INDEX]
+							}
+							INDEX = root.equipment_choose
+						}
+					}
+				}
+			}		
+			
+			set_variable = { target_tag_root = ROOT } 
+			for_each_loop = {
+				array = root.list_equipment
+				
+				set_variable = { root.equipment_choose = i }
+				if = { limit = { check_variable = { root.equipment_choose < 24 } }
+					meta_effect = {
+						text = {
+							send_equipment = {
+								equipment = [EQ_TYPE]
+								amount = root.equipment_root_[INDEX]
+								target = ROOT
+							}
+						}
+						EQ_TYPE = "[?root.list_equipment^root.equipment_choose.GetTokenKey]"
+						INDEX = root.equipment_choose
+					}
+				}
+				else_if = { limit = { check_variable = { root.equipment_root_@var:root.equipment_choose > 0 } }
+					set_variable = { equipment_root_s_@var:root.equipment_choose = root.equipment_root_@var:root.equipment_choose }
+					meta_effect = {
+						text = {
+							country_event = send_ships_root.[INDEX]
+						}
+						INDEX = root.equipment_choose
+					}
+				}
+			}
+			FROM = {
+				if = { limit = { check_variable = { root.o_factories_to_send > 0 } }
+					add_dynamic_modifier = { modifier = received_factories }
+					if = { limit = { has_variable = received_factories } 
+						add_to_variable = { received_factories = root.o_factories_to_send }
+					}
+					else = { set_variable = { received_factories = root.o_factories_to_send } }
+					ROOT = { 
+						add_dynamic_modifier = { modifier = sended_factories } 
+						if = { limit = { has_variable = sended_factories } 
+							add_to_variable = { sended_factories = root.o_factories_to_send }
+						}
+						else = { set_variable = { sended_factories = root.o_factories_to_send } }
+					} 
+				}
+				
+				if = { limit = { check_variable = { root.o_factories_to_send_root > 0 } }
+					add_dynamic_modifier = { modifier = sended_factories }
+					if = { limit = { has_variable = sended_factories } 
+						add_to_variable = { sended_factories = root.o_factories_to_send_root }
+					}
+					else = { set_variable = { sended_factories = root.o_factories_to_send_root } }
+					ROOT = { 
+						add_dynamic_modifier = { modifier = received_factories } 
+						if = { limit = { has_variable = received_factories } 
+							add_to_variable = { received_factories = root.o_factories_to_send_root }
+						}
+						else = { set_variable = { received_factories = root.o_factories_to_send_root } }
+					} 
+				}
+			}
+			
+			FROM = {
+				if = { limit = { check_variable = { sended_factories > 0 } check_variable = { received_factories > 0 } }
+					if = { limit = { check_variable = { sended_factories = received_factories } }
+						clear_variable = sended_factories
+						clear_variable = received_factories
+						remove_dynamic_modifier = { modifier = sended_factories }
+						remove_dynamic_modifier =  { modifier =received_factories }
+					}
+					else_if = { limit = { check_variable = { sended_factories > received_factories } }
+						subtract_from_variable = { sended_factories = received_factories }
+						clear_variable = received_factories
+						remove_dynamic_modifier = { modifier = received_factories }
+					}
+					else = {
+						subtract_from_variable = { received_factories = sended_factories }
+						clear_variable = sended_factories
+						remove_dynamic_modifier = { modifier = sended_factories }
+					}
+				}
+			}
+			
+			ROOT = {
+				if = { limit = { check_variable = { sended_factories > 0 } check_variable = { received_factories > 0 } }
+					if = { limit = { check_variable = { sended_factories = received_factories } }
+						clear_variable = sended_factories
+						clear_variable = received_factories
+						remove_dynamic_modifier = { modifier = sended_factories }
+						remove_dynamic_modifier =  { modifier =received_factories }
+					}
+					else_if = { limit = { check_variable = { sended_factories > received_factories } }
+						subtract_from_variable = { sended_factories = received_factories }
+						clear_variable = received_factories
+						remove_dynamic_modifier = { modifier = received_factories }
+					}
+					else = {
+						subtract_from_variable = { received_factories = sended_factories }
+						clear_variable = sended_factories
+						remove_dynamic_modifier = { modifier = sended_factories }
+					}
+				}
+			}
+			
+			ROOT = {  
+				clear_variable = equipment_choose
+				clear_array = list_equipment
+				clear_array = count_of_mln
+				clear_array = count_of_mln_root
+				
+				clear_variable = o_send_eq
+				clear_variable = o_send_eq_root
+				clear_variable = equipment_24 
+				clear_variable = equipment_25
+				clear_variable = equipment_26
+				clear_variable = equipment_27
+				clear_variable = equipment_28
+				clear_variable = equipment_29
+				clear_variable = equipment_30
+				clear_variable = equipment_root_24 
+				clear_variable = equipment_root_25
+				clear_variable = equipment_root_26
+				clear_variable = equipment_root_27
+				clear_variable = equipment_root_28
+				clear_variable = equipment_root_29
+				clear_variable = equipment_root_30
+				clear_variable = equipment_choose
+				clear_variable = equipment_choose_root
+				clear_variable = target_tag
+				clear_variable = o_factories_to_send
+				clear_variable = o_factories_to_send_root
+			}
+			clear_array = root.tt_states
+			clear_array = root.tt_root_states
+			clear_variable = target_tag_root
+			
+			clear_variable = equipment_root_s_24 
+			clear_variable = equipment_root_s_25
+			clear_variable = equipment_root_s_26
+			clear_variable = equipment_root_s_27
+			clear_variable = equipment_root_s_28
+			clear_variable = equipment_root_s_29
+			clear_variable = equipment_root_s_30
+			
+			force_update_dynamic_modifier = yes
+		}
+        
+        # reject_effect - Эффект, который можно применить при ОТКЛОНЕНИИ действия (действителен только если requires_acceptance == YES).
+        reject_effect = {
+			clear_array = root.tt_states
+			clear_array = root.tt_root_states
+			clear_array = root.send_eq_list
+			clear_array = root.send_eq
+			clear_array = root.send_eq_list_root
+			clear_array = root.send_eq_root
+		}
+        
+        #### СЕКЦИЯ ИИ ###
+        
+#        ai_desire = {    # Модификаторы ИИ для использования этого дипломатического действия.
+#            modifier = {
+#                add = 0
+#            }
+#        }
+#        ai_acceptance = {    # Модификаторы ИИ для принятия этого дипломатического действия, недействителен, если requires_acceptance == NO.
+#            base_desire = {
+#                modifier = {
+#                    factor = 0
+#                }
+#            }        
+        }
+    }
+}

@@ -1,0 +1,21 @@
+﻿l_russian:
+ OFFER_DIPLOMATIC_ACTION_ACTION_DESC:0 "Создать предложение обмена"
+ OFFER_DIPLOMATIC_ACTION_TITLE:0 "Предложить обмен"
+ TEST_DIPLO_ACTION_LOC:0 "Торговое предложение"
+ TEST_DIPLO_ACTION_RECIEVER_LOC:0 "Вам поступило троговое предложение"
+ TEST_DIPLO_ACTION_ACCEPTED_TITLE:0 "Торговое предложение"
+ TEST_DIPLO_ACTION_ACCEPTED_DESC:0 "Торговое предложение принято"
+ TEST_DIPLO_ACTION_REJECTED_TITLE:0 "Торговое предложение"
+ TEST_DIPLO_ACTION_REJECTED_DESC:0 "Торговое предложение отклонено"
+
+ O_GET_PP_ROOT_TEXT:0 "Вы отдадите политическую власть в количестве [?root.o_give_pp_root]"
+ O_GET_HR_ROOT_TEXT:0 "Вы отдадите людские ресурсы в количестве [?root.o_give_hr_root] 000"
+ O_GET_ST_ROOT_TEXT:0 "Вы отдадите регионы в количестве [?root.tt_root_states^num]  [from.GetFlag]"
+ O_GET_FA_ROOT_TEXT:0 "Вы отдадите фабрики в количестве [?root.o_factories_to_send_root]"
+ O_GET_WP_ROOT_TEXT:0 "Вы отдадите "
+ 
+ O_GET_PP_TEXT:0 "Вы получите политическую власть в количестве [?root.o_give_pp]"
+ O_GET_HR_TEXT:0 "Вы получите людские ресурсы в количестве [?root.o_give_hr] 000"
+ O_GET_ST_TEXT:0 "Вы получите регионы в количестве [?root.tt_states^num]  [root.GetFlag]"
+ O_GET_FA_TEXT:0 "Вы получите фабрики в количестве [?root.o_factories_to_send]"
+ O_GET_WP_TEXT:0 "Вы получите "

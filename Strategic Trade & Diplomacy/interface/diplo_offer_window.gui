@@ -1,0 +1,982 @@
+guiTypes = {
+	containerWindowType = {
+	name = "offer_window"
+	position = { x = 25 y = 20 }	
+	size = { width = 100% height = 620 }
+	show_sound = menu_open_window
+		
+		iconType = { # БГ
+		name = "Background" 
+		quadTextureSprite = "GFX_chose_offer" 
+		}
+
+		iconType = { # ФЛАГ
+		name = "window_flag" 
+		spriteType = "GFX_diplo_countrylist_flag_frame"
+		position =  { x = 110 y = 84 }
+		}
+
+		iconType = { # ФЛАГ РУТ
+		name = "window_flag_root" 
+		spriteType = "GFX_diplo_countrylist_flag_frame2"
+		position =  { x = 360 y = 84 }
+		}
+		
+		buttonType = {
+			name = "flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 115 y = 88 }
+		}
+		
+		buttonType = {
+			name = "flag_root"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 365 y = 88 }
+		}
+		
+		iconType = { # КАТЕГОРИЯ
+		name = "categorias" 
+		spriteType = "GFX_diplo_details_header"
+		position =  { x = 20 y = 150 }
+		}
+
+		iconType = { # КАТЕГОРИЯ РУТ
+		name = "categorias_root" 
+		spriteType = "GFX_diplo_details_header_root"
+		position =  { x = 270 y = 150 }
+		}
+
+		iconType = { # МИНИ ОФФЕР
+		name = "mini_offer_window" 
+		spriteType = "GFX_mini_offer"
+		position =  { x = 15 y = 200 }
+		}
+
+		iconType = { # МИНИ ОФФЕР РУТ
+		name = "mini_offer_window_root" 
+		spriteType = "GFX_mini_offer_root"
+		position =  { x = 263 y = 200 }
+		}
+		
+		iconType = {
+			name = "arrow_right"
+			spriteType = "GFX_arrow_right"
+			position = { x = 220 y = 559 }	
+		}
+		
+		iconType = {
+			name = "arrow_left"
+			spriteType = "GFX_arrow_left"
+			position = { x = 273 y = 559 }	
+		}
+		
+		iconType = {
+			name = "send_icon"
+			spriteType = "GFX_send_icon"
+			position = { x = 20 y = 549 }	
+		}
+		
+		iconType = {
+			name = "send_icon_root"
+			spriteType = "GFX_send_icon"
+			position = { x = 268 y = 549 }	
+		}
+		
+		
+			
+		# КНОПКИ ------------------------------------------------
+		
+		buttonType = { 
+			name = "button_territory" # ТЕРРИТОРИИ
+			position = {x = 40 y = 156 }
+			spriteType = "GFX_icon_territories"
+		}
+		buttonType = { #кнопка
+			name = "button_inf_softness_icon" #ПЕХОТКА
+			position = {x = 88 y = 163 }
+			spriteType = "GFX_inf_softness_icon"
+		}
+		
+		buttonType = { #кнопка
+			name = "button_political_power" # ПОЛИТКА 
+			position = {x = 120 y = 151 }
+			spriteType = "GFX_political_power"
+		}
+		buttonType = { #кнопка
+			name = "button_manpower_icon" #ЛЮДСКИЕ РЕСЫ
+			position = {x = 170 y = 156 }
+			spriteType = "GFX_manpower_icon"
+		}
+		buttonType = { #кнопка
+			name = "button_factory" # ФАБРИКИ 
+			position = {x = 210 y = 160 }
+			spriteType = "GFX_factory_icon"
+		}
+		buttonType = { #кнопка
+			name = "button_icon_territories_root" #ТЕРРИТОРИЯ СВОЯ
+			position = {x = 290 y = 156 }
+			spriteType = "GFX_icon_territories_root"
+		}
+		buttonType = { #кнопка
+			name = "button_inf_softness_icon_root" #ПЕХОТКА СВОЯ
+			position = {x = 338 y = 163 }
+			spriteType = "GFX_inf_softness_icon_root"
+		}
+		
+		buttonType = { #кнопка
+			name = "button_political_power_root" # ПОЛИТКА РУТ
+			position = {x = 370 y = 151 }
+			spriteType = "GFX_political_power_root"
+		}
+		buttonType = { #кнопка
+			name = "button_manpower_icon_root" #ЛЮДСКИЕ РЕСЫ СВОИ
+			position = {x = 420 y = 156 }
+			spriteType = "GFX_manpower_icon_root"
+		}
+		buttonType = { #кнопка
+			name = "button_factory_root" # ФАБРИКИ 
+			position = {x = 460 y = 160 }
+			position = {x = 460 y = 160 }
+			spriteType = "GFX_factory_icon"
+		}
+		
+		containerWindowType = {
+		name = "mini_offer"
+		position = { x = 15 y = 200 }	
+		size = { width = 250 height = 350 }
+			
+			instantTextboxType = {
+				name = "o_pp"
+				position = { x = 115 y = 100 }  
+				text = "[?root.o_give_pp]"
+				font = "hoi_16mbs"
+			}
+			
+			buttonType = {
+				name = "add_one_pp"
+				position = { x = 155 y = 150 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_pp"
+				position = { x = 180 y = 150 }
+				spriteType = "GFX_add_5"
+			}
+			
+			buttonType = {
+				name = "add_ten_pp"
+				position = { x = 205 y = 150 }
+				spriteType = "GFX_add_10"
+			}
+			
+			buttonType = {
+				name = "subtract_one_pp"
+				position = { x = 70 y = 150 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_pp"
+				position = { x = 45 y = 150 }
+				spriteType = "GFX_subtract_5"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_pp"
+				position = { x = 20 y = 150 }
+				spriteType = "GFX_subtract_10"
+			}
+			
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_root"
+		position = { x = 263 y = 200 }
+		size = { width = 250 height = 350 }
+			
+			instantTextboxType = {
+				name = "o_pp_root"
+				position = { x = 115 y = 100 }    
+				text = "[?root.o_give_pp_root]"
+				font = "hoi_16mbs"
+			}
+			
+			buttonType = {
+				name = "add_one_pp_root"
+				position = { x = 155 y = 150 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_pp_root"
+				position = { x = 180 y = 150 }
+				spriteType = "GFX_add_5"
+			}
+			
+			buttonType = {
+				name = "add_ten_pp_root"
+				position = { x = 205 y = 150 }
+				spriteType = "GFX_add_10"
+			}
+			buttonType = {
+				name = "subtract_one_pp_root"
+				position = { x = 70 y = 150 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_pp_root"
+				position = { x = 45 y = 150 }
+				spriteType = "GFX_subtract_5"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_pp_root"
+				position = { x = 20 y = 150 }
+				spriteType = "GFX_subtract_10"
+			}
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_hr"
+		position = { x = 15 y = 200 }	
+		size = { width = 250 height = 350 }
+			instantTextboxType = {
+				name = "o_hr"
+				position = { x = 115 y = 50 }    
+				text = "[?root.o_give_hr] 000"
+				font = "hoi_16mbs"
+			}
+			
+			buttonType = {
+				name = "add_one_hr"
+				position = { x = 150 y = 150 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_hr"
+				position = { x = 175 y = 150 }
+				spriteType = "GFX_add_10"
+			}
+			
+			buttonType = {
+				name = "add_ten_hr"
+				position = { x = 200 y = 150 }
+				spriteType = "GFX_add_50"
+			}
+			
+			buttonType = {
+				name = "subtract_one_hr"
+				position = { x = 75 y = 150 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_hr"
+				position = { x = 50 y = 150 }
+				spriteType = "GFX_subtract_10"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_hr"
+				position = { x = 25 y = 150 }
+				spriteType = "GFX_subtract_50"
+			}
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_hr_root"
+		position = { x = 263 y = 200 }
+		size = { width = 250 height = 350 }
+			instantTextboxType = {
+				name = "o_hr_root"
+				position = { x = 115 y = 50 }    
+				text = "[?root.o_give_hr_root] 000"
+				font = "hoi_16mbs"
+			}
+		
+			buttonType = {
+				name = "add_one_hr_root"
+				position = { x = 150 y = 150 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_hr_root"
+				position = { x = 175 y = 150 }
+				spriteType = "GFX_add_10"
+			}
+			
+			buttonType = {
+				name = "add_ten_hr_root"
+				position = { x = 200 y = 150 }
+				spriteType = "GFX_add_50"
+			}
+			buttonType = {
+				name = "subtract_one_hr_root"
+				position = { x = 75 y = 150 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_hr_root"
+				position = { x = 50 y = 150 }
+				spriteType = "GFX_subtract_10"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_hr_root"
+				position = { x = 25 y = 150 }
+				spriteType = "GFX_subtract_50"
+			}
+		}
+			
+		containerWindowType = {
+		name = "mini_offer_st"
+		position = { x = 15 y = 225 }	
+		size = { width = 250 height = 295 }
+
+			verticalScrollbar = "right_vertical_slider"
+
+			#background is necesarry for scrollbars to work
+			background = {
+				name = "Background"
+				quadTextureSprite = ""
+			}
+			
+			# this grid will be dynamically populated
+			gridboxtype = {
+				name = "country_states"
+				position = { x = 40 y = -10 }
+				size = { width = 250 height = 100% }
+				slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+			
+			
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_st_root"
+		position = { x = 263 y = 225 }
+		size = { width = 250 height = 295 }
+		
+			verticalScrollbar = "right_vertical_slider"
+
+			#background is necesarry for scrollbars to work
+			background = {
+				name = "Background"
+				quadTextureSprite = ""
+			}
+			
+			# this grid will be dynamically populated
+			gridboxtype = {
+				name = "country_states_root"
+				position = { x = 40 y = -10 }
+				size = { width = 250 height = 100% }
+				slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+			
+			
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_sw"
+		position = { x = 15 y = 225 }	
+		size = { width = 250 height = 295 }
+			
+			verticalScrollbar = "left_vertical_slider"
+	
+			#background is necesarry for scrollbars to work
+			background = {
+				name = "Background"
+				quadTextureSprite = ""
+			}
+			
+			gridboxtype = {
+				name = "list_equipment"
+				position = { x = 40 y = -10 }
+				size = { width = 250 height = 100% }
+				slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_sw_root"
+		position = { x = 263 y = 225 }	
+		size = { width = 250 height = 295 }
+			
+			verticalScrollbar = "left_vertical_slider"
+	
+			#background is necesarry for scrollbars to work
+			background = {
+				name = "Background"
+				quadTextureSprite = ""
+			}
+			
+			gridboxtype = {
+				name = "list_equipment_root"
+				position = { x = 40 y = -10 }
+				size = { width = 250 height = 100% }
+				slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+		
+		containerWindowType = {
+		name = "number_of_equipment"
+		position = { x = 20 y = 549 }	
+		size = { width = 240 height = 45 }
+		
+			instantTextboxType = {
+				name = "o_eq"
+				position = { x = 100 y = 15 } 
+				text = "[?root.o_send_eq]"
+				font = "hoi_16mbs"
+			}
+			
+			buttonType = {
+				name = "add_max_eq"
+				position = { x = 175 y = -2 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_one_eq"
+				position = { x = 125 y = 22 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_eq"
+				position = { x = 150 y = 22 }
+				spriteType = "GFX_add_5"
+			}
+			
+			buttonType = {
+				name = "add_ten_eq"
+				position = { x = 175 y = 22 }
+				spriteType = "GFX_add_10"
+			}
+			
+			buttonType = {
+				name = "subtract_one_eq"
+				position = { x = 55 y = 22 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_eq"
+				position = { x = 30 y = 22 }
+				spriteType = "GFX_subtract_5"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_eq"
+				position = { x = 5 y = 22 }
+				spriteType = "GFX_subtract_10"
+			}
+			
+			buttonType = {
+				name = "set_null_eq"
+				position = { x = 5 y = -2 }
+				spriteType = "GFX_subtract_one"
+			}
+		}
+		
+		containerWindowType = {
+		name = "number_of_equipment_root"
+		position = { x = 303 y = 549 }	
+		size = { width = 240 height = 45 }
+		
+			instantTextboxType = {
+				name = "o_eq_root"
+				position = { x = 100 y = 15 } 
+				text = "[?root.o_send_eq_root]"
+				font = "hoi_16mbs"
+			}
+			
+			buttonType = {
+				name = "add_max_eq_root"
+				position = { x = 175 y = -2 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_one_eq_root"
+				position = { x = 125 y = 22 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_eq_root"
+				position = { x = 150 y = 22 }
+				spriteType = "GFX_add_5"
+			}
+			
+			buttonType = {
+				name = "add_ten_eq_root"
+				position = { x = 175 y = 22 }
+				spriteType = "GFX_add_10"
+			}
+			
+			buttonType = {
+				name = "subtract_one_eq_root"
+				position = { x = 55 y = 22 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_eq_root"
+				position = { x = 30 y = 22 }
+				spriteType = "GFX_subtract_5"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_eq_root"
+				position = { x = 5 y = 22 }
+				spriteType = "GFX_subtract_10"
+			}
+			
+			buttonType = {
+				name = "set_null_eq_root"
+				position = { x = 5 y = -2 }
+				spriteType = "GFX_subtract_one"
+			}
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_factories"
+		position = { x = 15 y = 200 }	
+		size = { width = 250 height = 295 }
+		
+			instantTextboxType = {
+				name = "o_factories_to_send"
+				position = { x = 115 y = 50 }    
+				text = "[?root.o_factories_to_send]"
+				font = "hoi_16mbs"
+			}
+			
+			buttonType = {
+				name = "add_one_factory"
+				position = { x = 155 y = 150 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_factory"
+				position = { x = 180 y = 150 }
+				spriteType = "GFX_add_5"
+			}
+			
+			buttonType = {
+				name = "add_ten_factory"
+				position = { x = 205 y = 150 }
+				spriteType = "GFX_add_10"
+			}
+			
+			buttonType = {
+				name = "subtract_one_factory"
+				position = { x = 70 y = 150 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_factory"
+				position = { x = 45 y = 150 }
+				spriteType = "GFX_subtract_5"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_factory"
+				position = { x = 20 y = 150 }
+				spriteType = "GFX_subtract_10"
+			}
+		}
+		
+		containerWindowType = {
+		name = "mini_offer_factories_root"
+		position = { x = 263 y = 200 }	
+		size = { width = 250 height = 295 }
+		
+			instantTextboxType = {
+				name = "o_factories_to_send_root"
+				position = { x = 115 y = 50 }    
+				text = "[?root.o_factories_to_send_root]"
+				font = "hoi_16mbs"
+			}
+			
+			buttonType = {
+				name = "add_one_factory_root"
+				position = { x = 155 y = 150 }
+				spriteType = "GFX_add_one"
+			}
+			
+			buttonType = {
+				name = "add_five_factory_root"
+				position = { x = 180 y = 150 }
+				spriteType = "GFX_add_5"
+			}
+			
+			buttonType = {
+				name = "add_ten_factory_root"
+				position = { x = 205 y = 150 }
+				spriteType = "GFX_add_10"
+			}
+			
+			buttonType = {
+				name = "subtract_one_factory_root"
+				position = { x = 70 y = 150 }
+				spriteType = "GFX_subtract_one"
+			}
+			
+			buttonType = {
+				name = "subtract_five_factory_root"
+				position = { x = 45 y = 150 }
+				spriteType = "GFX_subtract_5"
+			}
+			
+			buttonType = {
+				name = "subtract_ten_factory_root"
+				position = { x = 20 y = 150 }
+				spriteType = "GFX_subtract_10"
+			}
+		}
+	}
+	
+	containerWindowType = {
+	name = "o_states"
+	position = { x = 0 y = 0 }	
+	size = { width = 55 height = 30 }
+		
+		buttonType = {
+			name = "add_st"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_1"
+			buttonText = "[?this.GetName]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+		
+		buttonType = {
+			name = "remove_st"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_2"
+			buttonText = "[?this.GetName]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+	}
+	
+	containerWindowType = {
+	name = "o_states_root"
+	position = { x = 0 y = 0 }	
+	size = { width = 55 height = 30 }
+		
+		buttonType = {
+			name = "add_st_root"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_1"
+			buttonText = "[?this.GetName]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+		
+		buttonType = {
+			name = "remove_st_root"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_2"
+			buttonText = "[?this.GetName]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+	}
+	
+	containerWindowType = {
+	name = "o_equipment"
+	position = { x = 0 y = 0 }	
+	size = { width = 55 height = 30 }
+		
+		buttonType = {
+			name = "add_equipment"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_1"
+			buttonText = "[?root.list_equipment^i.GetTokenLocalizedKey]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+		
+		buttonType = {
+			name = "remove_equipment"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_2"
+			buttonText = "[?root.list_equipment^i.GetTokenLocalizedKey]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+	}
+	
+	containerWindowType = {
+	name = "o_equipment_root"
+	position = { x = 0 y = 0 }	
+	size = { width = 55 height = 30 }
+		
+		buttonType = {
+			name = "add_equipment_root"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_1"
+			buttonText = "[?root.list_equipment_root^i.GetTokenLocalizedKey]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+		
+		buttonType = {
+			name = "remove_equipment_root"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_2"
+			buttonText = "[?root.list_equipment_root^i.GetTokenLocalizedKey]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+	}
+	
+	containerWindowType = {
+	name = "get_window"
+	position = { x = 0 y = 0 }	
+	size = { width = 100% height = 620 }
+		
+		containerWindowType = {
+		name = "get_window_left"
+		size = { width = 100 height = 100% }
+		position = { x = 15 y = 5 }
+		
+			instantTextboxType = {
+				name = "o_get_pp_root"
+				position = { x = 0 y = 0 } 
+				text = "O_GET_PP_ROOT_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_hr_root"
+				position = { x = 0 y = 50 } 
+				text = "O_GET_HR_ROOT_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_st_root"
+				position = { x = 0 y = 100 } 
+				text = "O_GET_ST_ROOT_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_fa_root"
+				position = { x = 0 y = 150 } 
+				text = "O_GET_FA_ROOT_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_wp_root"
+				position = { x = 80 y = 550 } 
+				text = "O_GET_WP_ROOT_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			containerWindowType = {
+			name = "get_window_left_send_states"
+			position = { x = 0 y = 200 }	
+			size = { width = 250 height = 250 }
+
+				verticalScrollbar = "right_vertical_slider"
+
+				#background is necesarry for scrollbars to work
+				background = {
+					name = "Background"
+					quadTextureSprite = ""
+				}
+				
+				# this grid will be dynamically populated
+				gridboxtype = {
+					name = "send_states_root"
+					position = { x = 0 y = 0 }
+					size = { width = 250 height = 100% }
+					slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}
+			}
+			
+			containerWindowType = {
+			name = "get_window_left_send_eq"
+			position = { x = 0 y = 400 }	
+			size = { width = 250 height = 250 }
+
+				verticalScrollbar = "right_vertical_slider"
+
+				#background is necesarry for scrollbars to work
+				background = {
+					name = "Background"
+					quadTextureSprite = ""
+				}
+				
+				# this grid will be dynamically populated
+				gridboxtype = {
+					name = "send_eq_root"
+					position = { x = 0 y = 0 }
+					size = { width = 250 height = 100% }
+					slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}	
+			}
+		}
+		
+		containerWindowType = {
+		name = "get_window_right"
+		size = { width = 100 height = 100% }
+		position = { x = 340 y = 5 }	
+			
+			instantTextboxType = {
+				name = "o_get_pp"
+				position = { x = 0 y = 0 } 
+				text = "O_GET_PP_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_hr"
+				position = { x = 0 y = 50 } 
+				text = "O_GET_HR_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_st"
+				position = { x = 0 y = 100 } 
+				text = "O_GET_ST_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_fa"
+				position = { x = 0 y = 150 } 
+				text = "O_GET_FA_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			instantTextboxType = {
+				name = "o_get_wp"
+				position = { x = 50 y = 550 } 
+				text = "O_GET_WP_TEXT"
+				font = "hoi_18mbs"
+			}
+			
+			containerWindowType = {
+			name = "get_window_right_send_states"
+			position = { x = 0 y = 400 }	
+			size = { width = 250 height = 250 }
+
+				verticalScrollbar = "right_vertical_slider"
+
+				#background is necesarry for scrollbars to work
+				background = {
+					name = "Background"
+					quadTextureSprite = ""
+				}
+				
+				# this grid will be dynamically populated
+				gridboxtype = {
+					name = "send_eq"
+					position = { x = 0 y = 0 }
+					size = { width = 250 height = 100% }
+					slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}
+			}
+			
+			containerWindowType = {
+			name = "get_window_right_send_eq"
+			position = { x = 0 y = 200 }	
+			size = { width = 250 height = 250 }
+
+				verticalScrollbar = "right_vertical_slider"
+
+				#background is necesarry for scrollbars to work
+				background = {
+					name = "Background"
+					quadTextureSprite = ""
+				}
+				
+				# this grid will be dynamically populated
+				gridboxtype = {
+					name = "send_states"
+					position = { x = 0 y = 0 }
+					size = { width = 250 height = 100% }
+					slotsize = { width = 250 height = 1 } #if width or height is 1, it will use slot element's dimension
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}
+			}
+		}
+	}
+	
+	containerWindowType = {
+	name = "get_window_right_send_states_container"
+	position = { x = 0 y = 0 }	
+	size = { width = 55 height = 30 }
+		
+		buttonType = {
+			name = "send_stats_but"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_1"
+			buttonText = "[?this.GetName]"
+			buttonFont = "hoi_16mbs"
+			Orientation = center
+		}
+		
+	}
+	
+	containerWindowType = {
+	name = "get_window_left_send_eq_container"
+	position = { x = 0 y = 0 }	
+	size = { width = 240 height = 30 }
+		
+		buttonType = {
+			name = "eq_root"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_long_1"
+			buttonText = "[?root.send_eq_list_root^i.GetTokenLocalizedKey]: [?root.send_eq_root^i]"
+			buttonFont = "hoi_16mbs"
+			Orientation = left
+		}
+		
+	}
+	
+	containerWindowType = {
+	name = "get_window_right_send_eq_container"
+	position = { x = 0 y = 0 }	
+	size = { width = 240 height = 30 }
+		
+		buttonType = {
+			name = "eq"
+			position = { x = 0 y = 0 }	
+			quadTextureSprite = "GFX_sort_button_frame_long_1"
+			buttonText = "[?root.send_eq_list^i.GetTokenLocalizedKey]: [?root.send_eq^i]"
+			buttonFont = "hoi_16mbs"
+			Orientation = left
+		}
+		
+	}
+}
